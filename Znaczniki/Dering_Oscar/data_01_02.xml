@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<linki><![CDATA[
+<a href="https://www.wp.pl/">Wirtualna Polska</a>
+<a href="https://www.onet.pl/">Onet</a>
+]]></linki>
+
+
+<data>
+ <items id="itms">
+ <item caption="Poniedziałek" value="1"/>
+ <item caption="Wtorek" value="2"/>
+ <item caption="Środa" value="3"/>
+ <item caption="Czwartek" value="4"/>
+ <item caption="Piątek" value="5"/>
+ <item caption="Sobota" value="6"/>
+ <item caption="Niedziela" value="7"/>
+ </items>
+</data>

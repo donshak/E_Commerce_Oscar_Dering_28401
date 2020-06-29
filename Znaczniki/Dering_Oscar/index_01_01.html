@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Znaczniki</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+<button type="button" onclick="loadXMLDoc()">Load in a XML content into the table below</button>
+<br><br>
+<table id="demo"></table>   
+<script>
+function loadXMLDoc() {
+ /*
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     
+      debugger; myFunction(this);
+    }
+};
+xmlhttp.open("GET", "data_01_02.xml", true);
+xmlhttp.send();*/
+getXML( "data_01_02.xml",myFunction )
+}
+
+var xmlSerializer = new XMLSerializer();
+			function getXML(file, callback) {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var parser = new DOMParser();
+						var xmlDoc = parser.parseFromString(xhttp.responseText, "application/xml");
+						callback(xmlDoc);
+					}
+				};
+				xhttp.open("GET", file, true);
+				xhttp.send();
+			}
+
+
+function myFunction(xml) {    
+      var items = xmlDoc.getElementById("itms");
+for (var i = 0; i < items.childNodes.length; i++) {
+var node = items.childNodes[i];
+if (node.nodeType === 1) {
+var caption = node.getAttribute("caption");
+var value = node.getAttribute("value");
+var option = document.createElement("option");
+option.text = caption;
+option.value = value;
+document.getElementById("sel").appendChild(option);
+}
+}
+      }
+</script>
+
+<div style="margin-top: 10px">
+ <select id="sel"/>
+ </div>
+
+<table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-0pky"><img src="https://images2.alphacoders.com/557/557092.png" alt="Geralt z Rivii" width="400" height="300"></th>
+        <th class="tg-0pky"><img src="https://images4.alphacoders.com/698/698153.jpg" alt="Nameless king" width="400" height="300"></th>
+        <th class="tg-0pky"><img src="https://picfiles.alphacoders.com/358/358689.jpg" alt="Ken Kaneki" width="400" height="300"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0pky"><img src="https://images3.alphacoders.com/704/704387.png" alt="Megumin" width="400" height="300"></td>
+        <td class="tg-0pky"><img src="https://images2.alphacoders.com/102/1023201.jpg" alt="Lelouch" width="400" height="300"></td>
+        <td class="tg-0pky"><img src="https://images.alphacoders.com/453/453670.jpg" alt="Itachi" width="400" height="300"></td>
+      </tr>
+      <tr>
+        <td class="tg-0pky"><img src="https://images5.alphacoders.com/340/340754.jpg" alt="Kirito" width="400" height="300"></td>
+        <td class="tg-0pky"><img src="https://images7.alphacoders.com/909/909480.jpg" alt="Goku" width="400" height="300"></td>
+        <td class="tg-0pky"><img src="https://images7.alphacoders.com/303/303042.png" alt="Naruto" width="400" height="300"></td>
+      </tr>
+    </tbody>
+    </table>
+
+ 
+
+
+
+
+
+</body>
+</html>
